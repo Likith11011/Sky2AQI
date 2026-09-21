@@ -1,0 +1,13 @@
+@"
+venv/
+__pycache__/
+*.pyc
+sky2aqi_data/
+Air Pollution Image Dataset/
+Dataset_for_AQI_Classification/
+sample_images.png
+inspect_Good.png
+inspect_Moderate.png
+.env
+"@ | Out-File -FilePath .gitignore -Encoding utf8
+node_modules
