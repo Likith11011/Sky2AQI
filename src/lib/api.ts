@@ -97,7 +97,7 @@ export async function fetchModelBenchmarks(): Promise<ModelStats | null> {
 export async function predictSkyPhoto(
   fileOrBlob: File | Blob,
   fileName: string = 'sky_photo.jpg',
-  withGradCAM: boolean = true
+  withGradCAM: boolean = false
 ): Promise<PredictionResult> {
   const formData = new FormData();
   formData.append('file', fileOrBlob, fileName);
