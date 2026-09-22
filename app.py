@@ -404,17 +404,12 @@ async def predict(file: UploadFile = File(...)) -> PredictionResponse:
     image_bytes = await file.read()
     image = _process_image(image_bytes)
 
-    # Test-time augmentation: average softmax probabilities from the
-    # original image and its horizontal flip. Improves robustness to
-    # camera/framing differences not seen during training.
-    original_tensor = inference_transform(image).unsqueeze(0).to(DEVICE)
-    flipped_tensor = inference_transform_flipped(image).unsqueeze(0).to(DEVICE)
-    batch = torch.cat([original_tensor, flipped_tensor], dim=0)
+    # Single-pass inference for speed on constrained hosting.
+    input_tensor = inference_transform(image).unsqueeze(0).to(DEVICE)
 
     with torch.no_grad():
-        outputs = model(batch)
-        probs_per_view = F.softmax(outputs, dim=1)
-        probabilities = probs_per_view.mean(dim=0).cpu().tolist()
+        outputs = model(input_tensor)
+        probabilities = F.softmax(outputs, dim=1).squeeze(0).cpu().tolist()
 
     all_probabilities = {
         DISPLAY_NAME_MAP.get(cls, cls): round(prob, 4)
@@ -443,7 +438,6 @@ async def predict(file: UploadFile = File(...)) -> PredictionResponse:
         pollutants=details["pollutants"],
         low_confidence=confidence < LOW_CONFIDENCE_THRESHOLD,
     )
-
 
 @app.post("/predict-explain", response_model=ExplainResponse)
 async def predict_explain(file: UploadFile = File(...)) -> ExplainResponse:
