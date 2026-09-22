@@ -14,7 +14,8 @@ import io
 import json
 import os
 from typing import Dict, List, Optional
-
+import torch
+torch.set_num_threads(1)
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.cm as cm
