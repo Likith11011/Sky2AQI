@@ -1,3 +1,4 @@
+// File: src/lib/api.ts
 import { PredictionResult, SampleItem, ModelStats, HealthStatus } from './types';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
@@ -102,7 +103,10 @@ export async function predictSkyPhoto(
   const formData = new FormData();
   formData.append('file', fileOrBlob, fileName);
 
-  const endpoint = withGradCAM ? '/predict-explain' : '/predict';
+  // Grad-CAM disabled in production — Render's free tier (512MB) cannot
+  // reliably handle the backward-pass + matplotlib memory load, causing
+  // 502 crashes. Hardcoded to /predict so no caller can override this.
+  const endpoint = '/predict';
   const res = await fetch(`${API_BASE_URL}${endpoint}`, {
     method: 'POST',
     body: formData,
