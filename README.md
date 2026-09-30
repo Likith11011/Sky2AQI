@@ -163,6 +163,10 @@ python train.py                # trains and saves sky2aqi_model.pth
 | **Member 3** | Frontend & Presentation | Next.js interface and components, API integration (`src/lib/api.ts`), Vercel deployment, pitch deck, demo video, README |
 
 ---
+## 👥 Contributors
+
+- [Likith B](https://github.com/Likith11011)
+- [KushithaBhaskar](https://github.com/KushithaBhaskar)
 
 ## 📄 License
 
