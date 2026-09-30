@@ -158,8 +158,8 @@ python train.py                # trains and saves sky2aqi_model.pth
 
 | Member | Role | Responsibilities |
 |---|---|---|
-| ** LIKITH B ** | ML Engineer | Dataset preparation and splits (`datapreparation.py`), ResNet-34 training pipeline (`train.py`), augmentation (including `RandomCloudPatch`), evaluation (confusion matrix, classification report), diagnosing the cloud-cover failure, |
-| ** KUSHITHA B ** | Backend & Deployment | FastAPI service (`app.py`), endpoints and error handling, test-time augmentation, Grad-CAM,  |
+| ** LIKITH.B ** | ML Engineer | Dataset preparation and splits (`datapreparation.py`), ResNet-34 training pipeline (`train.py`), augmentation (including `RandomCloudPatch`), evaluation (confusion matrix, classification report), diagnosing the cloud-cover failure, |
+| ** KUSHITHA.B ** | Backend & Deployment | FastAPI service (`app.py`), endpoints and error handling, test-time augmentation, Grad-CAM,  |
 | **Member 3** | Frontend & Presentation | Next.js interface and components, API integration (`src/lib/api.ts`), Vercel deployment, pitch deck, demo video, README |
 
 ---
