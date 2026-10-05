@@ -167,7 +167,8 @@ python train.py                # trains and saves sky2aqi_model.pth
 
 - [Likith B](https://github.com/Likith11011)
 - [KushithaBhaskar](https://github.com/KushithaBhaskar)
+- [charmihalekya](https://github.com/charmihalekya)
 
-## 📄 License
+## 📄 Licenses
 
 Released for hackathon and educational use. Dataset credit: Adarsh Rouniyar (Kaggle).
