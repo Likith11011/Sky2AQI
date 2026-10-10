@@ -3,7 +3,7 @@
 Point a phone camera at the sky and get an instant AQI category, a confidence score, and health guidance. No hardware sensor is needed.
 
 **Live backend:** https://sky2aqi.onrender.com  
-**Live frontend:** `<your-vercel-url>`  
+**Live frontend:** https://sky2aqi.vercel.app  
 **Dataset:** [Air Pollution Image Dataset from India and Nepal](https://www.kaggle.com/datasets/adarshrouniyar/air-pollution-image-dataset-from-india-and-nepal) (12,240 labeled images)
 
 ---
